@@ -2,11 +2,6 @@
     "section1": {
         "files": [
             {
-                "url": "assets/3539107-200.png",
-                "type": "image",
-                "key": "3539107-200"
-            },
-            {
                 "url": "assets/car-top-view-icon (1) (1).png",
                 "type": "image",
                 "key": "car-top-view-icon (1) (1)"
@@ -15,11 +10,6 @@
                 "url": "assets/FufuSuperDino.png",
                 "type": "image",
                 "key": "FufuSuperDino"
-            },
-            {
-                "url": "assets/road-ezgif.com-resize (2).png",
-                "type": "image",
-                "key": "road-ezgif.com-resize (2)"
             },
             {
                 "url": "assets/road-ezgif.com-resize (2) (1).png",
