@@ -85,6 +85,8 @@ export default class Level extends Phaser.Scene {
 		this.setWeightLines(this.ellipse_1, 0xffffff);
 
 		this.setGames();
+
+		this.createTimer();
 	}
 
 	carTrafficGame!: Phaser.Scene;
@@ -126,7 +128,9 @@ export default class Level extends Phaser.Scene {
 			console.log("event", event.code);
 			if (event.code === "Digit1") {
 				this.setActiveGame(0);
+				this._start = true;
 			} else if (event.code === "Digit2") {
+				this._start = true;
 				this.setActiveGame(1);
 			}
 		});
@@ -167,7 +171,7 @@ export default class Level extends Phaser.Scene {
 			notActiveContainer = this.container;
 		}
 
-		const stepY = 10;		
+		const stepY = 10;
 		const maxDistance = this.scale.height - (activeContainer.getBounds().bottom + stepY);
 		const stepsAmount = Math.floor(maxDistance / stepY);
 
@@ -218,16 +222,54 @@ export default class Level extends Phaser.Scene {
 		this.tweenGames = [tweenGame1, tweenGame2];
 	}
 
+	private _start: boolean = false;
+	private _currentTime: number = 10;
+	private _timerView!: Phaser.GameObjects.Text
+	createTimer(): void {
+		const fontSize: number = 44;
+		const startTime = (("0" + this._currentTime.toFixed(2)).slice(-5));
+		this._timerView = this.add.text(this.cameras.main.width / 2, fontSize, startTime, {
+			fontSize,
+			color: "#00c896",
+		}).setOrigin(.5);
+	}
+	updateTimer(delta: number): void {
+		this._currentTime -= delta / 1000;
+		if (this._currentTime <= 0) {
+			this._currentTime = 0;
+		}
+		this._timerView.setText(("0" + this._currentTime.toFixed(2)).slice(-5));
+	}
+
 	finish(isWin: boolean): void {
 		console.log("finish");
+
+		this.games.forEach(game => {
+			if (game.scene.isActive()) {
+				game.scene.pause();
+			}
+		});
+
+		let color;
 		if (isWin) {
+			color = 0x00ff00;
+
+			this.ellipse.strokeColor = color;
+
+			const line = this.container.getByName("weightLine") as Phaser.GameObjects.Graphics;
+			this.container.remove(line, true);
+
+			this.setWeightLines(this.ellipse, color);
+
+			this.ellipse_1.strokeColor = color;
+
+			const line_1 = this.container_1.getByName("weightLine") as Phaser.GameObjects.Graphics;
+			this.container_1.remove(line_1, true);
+
+			this.setWeightLines(this.ellipse_1, color);
 
 		} else {
-			this.games.forEach(game => {
-				if (game.scene.isActive()) {
-					game.scene.pause();
-				}
-			});
+			color = 0xff0000;
 
 			let activeContainer: Phaser.GameObjects.Container;
 			let activeEllipse: Phaser.GameObjects.Ellipse;
@@ -239,14 +281,28 @@ export default class Level extends Phaser.Scene {
 				activeEllipse = this.ellipse_1;
 			}
 
-			activeEllipse.strokeColor = 0xff0000;
+			activeEllipse.strokeColor = color;
 
 			const line = activeContainer.getByName("weightLine") as Phaser.GameObjects.Graphics;
 			activeContainer.remove(line, true);
 
-			this.setWeightLines(activeEllipse, 0xff0000);
+			this.setWeightLines(activeEllipse, color);
+		}
 
-			this.scene.pause();
+		this.scene.pause();
+
+		const finishText: string = isWin ? "win" : "lose";
+		setTimeout(() => {
+			alert(`You ${finishText}!`);
+		}, 0);
+	}
+
+	update(time: number, delta: number): void {
+		if (this._start) {
+			this.updateTimer(delta);
+			if (this._currentTime <= 0) {
+				this.finish(true);
+			}
 		}
 	}
 
