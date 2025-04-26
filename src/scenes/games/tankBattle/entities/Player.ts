@@ -12,6 +12,8 @@ export class Player extends Phaser.Physics.Arcade.Image {
     private _velocity: number = 400;
     private _angle: number = 90;
 
+    safeZoneOffset: number = 100;
+
     constructor(scene: Phaser.Scene, x: number, y: number, texture: string | Phaser.Textures.Texture, frame?: string | number) {
         super(scene, x, y, texture, frame);
         scene.add.existing(this);

@@ -2,7 +2,7 @@
 // You can write more code here
 
 import CarTrafficGame from "../games/carTraffic/CarTrafficGame";
-import Game2 from "../games/game2/Game2";
+import TankBattleGame from "../games/tankBattle/TankBattleGame";
 
 /* START OF COMPILED CODE */
 
@@ -16,7 +16,7 @@ export default class Level extends Phaser.Scene {
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
-		/* END-USER-CTR-C ODE */
+		/* END-USER-CTR-CODE */
 	}
 
 	editorCreate(): void {
@@ -77,10 +77,6 @@ export default class Level extends Phaser.Scene {
 
 	// Write your code here
 
-
-	carTrafficGame!: Phaser.Scene;
-	game2!: Phaser.Scene;
-	games!: Phaser.Scene[];
 	create() {
 
 		this.editorCreate();
@@ -89,9 +85,11 @@ export default class Level extends Phaser.Scene {
 		this.setWeightLines(this.ellipse_1, 0xffffff);
 
 		this.setGames();
-
-		// this.setWeights();
 	}
+
+	carTrafficGame!: Phaser.Scene;
+	tankBattleGame!: Phaser.Scene;
+	games!: Phaser.Scene[];
 
 	setWeightLines(ellipse: Phaser.GameObjects.Ellipse, color: number): void {
 		const { x, y, width, scaleX } = ellipse;
@@ -112,16 +110,17 @@ export default class Level extends Phaser.Scene {
 		this.rectangle_1.setVisible(false);
 		this.scene.launch(this.carTrafficGame, this.rectangle_1);
 		this.carTrafficGame.scene.pause();
+
+		this.tankBattleGame = this.scene.add("TankBattleGame", TankBattleGame) as Phaser.Scene;
+		this.rectangle.setVisible(false);
+		this.scene.launch(this.tankBattleGame, this.rectangle);
+		this.tankBattleGame.scene.pause();
+
+		this.games = [this.carTrafficGame, this.tankBattleGame];
+
 		this.input.on("lose", () => {
 			this.finish(false);
 		});
-
-		this.game2 = this.scene.add("Game2", Game2) as Phaser.Scene;
-		this.rectangle.setVisible(false);
-		this.scene.launch(this.game2, this.rectangle);
-		this.game2.scene.pause();
-
-		this.games = [this.carTrafficGame, this.game2];
 
 		this.input.keyboard?.on("keydown", (event: any) => {
 			console.log("event", event.code);
@@ -174,8 +173,8 @@ export default class Level extends Phaser.Scene {
 
 
 		const offsetY: number = stepY * stepsAmount + stepY;
-		const duration: number = stepsAmount * 1000;
-		// const duration: number = 1 * 1000;
+		// const duration: number = stepsAmount * 1000;
+		const duration: number = 1 * 1000;
 
 		const callback1 = () => {
 			if (activeContainer.getBounds().bottom + stepY >= this.scale.height) {
@@ -197,17 +196,17 @@ export default class Level extends Phaser.Scene {
 			}
 		});
 
-		const callback2 = () => {
-			if (notActiveContainer.getBounds().bottom + stepY >= this.scale.height) {
-				this.finish(false);
-			}
+		const callback2 = () => {	// not needed
+			// if (notActiveContainer.getBounds().top - stepY <= 0) {
+			// 	this.finish(false);
+			// }
 		}
 		const tweenGame2 = this.tweens.add({
 			targets: notActiveContainer,
 			y: notActiveContainer.y - offsetY,
 			duration,
 			onUpdate: () => {
-				this.game2.cameras.main.y = this.rectangle.getBounds().y;
+				this.tankBattleGame.cameras.main.y = this.rectangle.getBounds().y;
 			},
 			onComplete: () => {
 				callback2();
@@ -220,6 +219,7 @@ export default class Level extends Phaser.Scene {
 	}
 
 	finish(isWin: boolean): void {
+		console.log("finish");
 		if (isWin) {
 
 		} else {

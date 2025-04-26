@@ -89,7 +89,7 @@ export default class CarTrafficGame extends Game {
 
 	readonly carTextureName: string = "car-top-view-icon (1) (1)";
 
-	playerCar!: Phaser.Physics.Arcade.Image;
+	playerCar!: Player;
 	createPlayer(): void {
 		this.playerCar = new Player(this, this.roadLaneCentersX[2], this.cameras.main.height / 2, this.carTextureName)
 			.setOrigin(.5)
