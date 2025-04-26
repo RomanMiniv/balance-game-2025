@@ -40,7 +40,7 @@ export class CarManager {
         const roadLane: number = Phaser.Math.Between(0, this.roadLaneCentersX.length - 1);
 
         const carHeight: number = this.scene.textures.getFrame(this.carTextureName).height;
-        const minCarSpace: number = carHeight * 1.5;
+        const minCarSpace: number = carHeight * 2;
 
         const isSkip = this.cars[roadLane].some(car => car.getTopCenter().y <= minCarSpace);
         if (isSkip) {

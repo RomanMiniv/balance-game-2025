@@ -27,7 +27,7 @@ export default class Menu extends Phaser.Scene {
 
 		// text_1
 		const text_1 = this.add.text(0, 0, "", {});
-		text_1.setInteractive(new Phaser.Geom.Rectangle(0, 0, 181, 29), Phaser.Geom.Rectangle.Contains);
+		text_1.setInteractive(new Phaser.Geom.Rectangle(0, 0, 253, 29), Phaser.Geom.Rectangle.Contains);
 		text_1.setOrigin(0.5, 0.5);
 		text_1.text = "Start new game";
 		text_1.setStyle({ "fontSize": "3em" });
@@ -44,7 +44,7 @@ export default class Menu extends Phaser.Scene {
 
 		// text
 		const text = this.add.text(0, 0, "", {});
-		text.setInteractive(new Phaser.Geom.Rectangle(0, 0, 181, 29), Phaser.Geom.Rectangle.Contains);
+		text.setInteractive(new Phaser.Geom.Rectangle(0, 0, 127, 29), Phaser.Geom.Rectangle.Contains);
 		text.setOrigin(0.5, 0.5);
 		text.text = "Options";
 		text.setStyle({ "fontSize": "3em" });
@@ -61,7 +61,7 @@ export default class Menu extends Phaser.Scene {
 
 		// text_2
 		const text_2 = this.add.text(0, 0, "", {});
-		text_2.setInteractive(new Phaser.Geom.Rectangle(0, 0, 181, 29), Phaser.Geom.Rectangle.Contains);
+		text_2.setInteractive(new Phaser.Geom.Rectangle(0, 0, 127, 29), Phaser.Geom.Rectangle.Contains);
 		text_2.setOrigin(0.5, 0.5);
 		text_2.text = "Credits";
 		text_2.setStyle({ "fontSize": "3em" });
