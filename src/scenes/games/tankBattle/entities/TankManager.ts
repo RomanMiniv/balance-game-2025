@@ -40,7 +40,7 @@ export class TankManager {
         const delay: number = Phaser.Math.Between(1, 3) * 2000;
         this.scene.time.addEvent({
             delay,
-            repeat: 1,
+            repeat: 2,
             callback: () => {
                 this.populateTanks(Phaser.Math.Between(1, 3));
             }
