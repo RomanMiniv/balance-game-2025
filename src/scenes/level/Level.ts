@@ -173,8 +173,8 @@ export default class Level extends Phaser.Scene {
 
 
 		const offsetY: number = stepY * stepsAmount + stepY;
-		// const duration: number = stepsAmount * 1000;
-		const duration: number = 1 * 1000;
+		const duration: number = stepsAmount * 1000;
+		// const duration: number = 1 * 1000;
 
 		const callback1 = () => {
 			if (activeContainer.getBounds().bottom + stepY >= this.scale.height) {
