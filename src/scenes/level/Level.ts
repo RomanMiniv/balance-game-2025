@@ -223,7 +223,7 @@ export default class Level extends Phaser.Scene {
 	}
 
 	private _start: boolean = false;
-	private _currentTime: number = 10;
+	private _currentTime: number = 60;
 	private _timerView!: Phaser.GameObjects.Text
 	createTimer(): void {
 		const fontSize: number = 44;
