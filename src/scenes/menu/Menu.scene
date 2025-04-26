@@ -1,0 +1,123 @@
+{
+    "id": "bfc63f8c-b598-4f89-821f-a27e674b4659",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "Menu",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1280,
+        "borderHeight": 720
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "06ad83c4-bf9f-4923-b71d-e955a7d428d9",
+            "label": "menuItems",
+            "scope": "CLASS",
+            "x": 564.9999833106995,
+            "y": 173.75,
+            "list": [
+                {
+                    "type": "Container",
+                    "id": "011e5f5c-edb0-4af5-bdad-9b49c93cb563",
+                    "label": "menuItem_1",
+                    "x": 75.00001668930054,
+                    "y": 75.00000000000003,
+                    "list": [
+                        {
+                            "type": "Text",
+                            "id": "226af077-803d-4e80-aa38-2b021744f57c",
+                            "label": "text_1",
+                            "hitArea.shape": "RECTANGLE",
+                            "hitArea.width": 181,
+                            "hitArea.height": 29,
+                            "originX": 0.5,
+                            "originY": 0.5,
+                            "text": "Start new game",
+                            "fontSize": "3em"
+                        },
+                        {
+                            "type": "Ellipse",
+                            "id": "06873271-42e9-4494-81e8-3efd1530ac3d",
+                            "label": "ellipse_1",
+                            "y": 29,
+                            "isFilled": true,
+                            "width": 14,
+                            "height": 14
+                        }
+                    ]
+                },
+                {
+                    "type": "Container",
+                    "id": "fd821f3b-d43b-4d49-9ade-1b179a584a1a",
+                    "label": "menuItem",
+                    "x": 75,
+                    "y": 175.50000000000003,
+                    "list": [
+                        {
+                            "type": "Text",
+                            "id": "24271886-05bc-4ee3-9b0a-f7cbf45f970e",
+                            "label": "text",
+                            "hitArea.shape": "RECTANGLE",
+                            "hitArea.width": 181,
+                            "hitArea.height": 29,
+                            "originX": 0.5,
+                            "originY": 0.5,
+                            "text": "Options",
+                            "fontSize": "3em"
+                        },
+                        {
+                            "type": "Ellipse",
+                            "id": "0350c506-10cd-4a63-a521-73962e7ce6ab",
+                            "label": "ellipse",
+                            "y": 29,
+                            "isFilled": true,
+                            "width": 14,
+                            "height": 14
+                        }
+                    ]
+                },
+                {
+                    "type": "Container",
+                    "id": "70482507-21cd-4a91-9232-5761fb320a81",
+                    "label": "menuItem_2",
+                    "x": 75,
+                    "y": 276,
+                    "list": [
+                        {
+                            "type": "Text",
+                            "id": "22ba5723-6f0b-4b45-9c75-afdd13c16734",
+                            "label": "text_2",
+                            "hitArea.shape": "RECTANGLE",
+                            "hitArea.width": 181,
+                            "hitArea.height": 29,
+                            "originX": 0.5,
+                            "originY": 0.5,
+                            "text": "Credits",
+                            "fontSize": "3em"
+                        },
+                        {
+                            "type": "Ellipse",
+                            "id": "4d8b5726-7996-4955-9b92-6a36052c9b66",
+                            "label": "ellipse_2",
+                            "y": 29,
+                            "isFilled": true,
+                            "width": 14,
+                            "height": 14
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

@@ -1,0 +1,95 @@
+{
+    "id": "b685c081-ee5f-4b67-b583-415922c9e2c4",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "Level",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1280,
+        "borderHeight": 720
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "7e3d03a8-4e59-4e8c-8279-96399e031db2",
+            "label": "container_2",
+            "x": 315,
+            "y": 332,
+            "list": [
+                {
+                    "type": "Container",
+                    "id": "4ada09d4-ca12-49bc-b041-e09d8bd880c5",
+                    "label": "container_1",
+                    "scope": "CLASS",
+                    "x": 626,
+                    "list": [
+                        {
+                            "type": "Ellipse",
+                            "id": "08fad8dc-deeb-4f21-9019-d6bae98af946",
+                            "label": "ellipse_1",
+                            "scope": "CLASS",
+                            "x": 12,
+                            "y": 232,
+                            "scaleX": 4.5,
+                            "lineWidth": 2,
+                            "isStroked": true,
+                            "width": 128,
+                            "height": 128
+                        },
+                        {
+                            "type": "Rectangle",
+                            "id": "778235cc-abf5-4ded-9dfc-48bc84b7ccbf",
+                            "label": "rectangle",
+                            "scope": "CLASS",
+                            "x": 12,
+                            "isFilled": true,
+                            "width": 480,
+                            "height": 480
+                        }
+                    ]
+                },
+                {
+                    "type": "Container",
+                    "id": "ae4b39f5-40e5-42c0-b691-e48e70ed05c0",
+                    "label": "container",
+                    "scope": "CLASS",
+                    "list": [
+                        {
+                            "type": "Ellipse",
+                            "id": "79ee4439-4f59-469a-9f3f-54f25012a50e",
+                            "label": "ellipse",
+                            "scope": "CLASS",
+                            "x": 12,
+                            "y": 232,
+                            "scaleX": 4.5,
+                            "lineWidth": 2,
+                            "isStroked": true,
+                            "width": 128,
+                            "height": 128
+                        },
+                        {
+                            "type": "Rectangle",
+                            "id": "d330f2f1-e6a1-43e4-8695-b6e16bfda1b8",
+                            "label": "rectangle_1",
+                            "scope": "CLASS",
+                            "x": 12,
+                            "isFilled": true,
+                            "width": 480,
+                            "height": 480
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}
